@@ -141,6 +141,12 @@ a.root-dir-btn {
     cursor: pointer;
 }
 
+@media screen and (max-width:768px) {
+    .container {
+        padding-top:4rem;
+    }
+}
+
 @media screen and (max-width: 425px) {
     .grid-container {
     grid-template-columns: 1fr;
