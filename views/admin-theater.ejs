@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANC Theaters | Admin</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+        <div class="container admin">
+        <a href="/theaters/<%=theater.id%>" class="admin-btn"> Go back to customer view </a>
+        <h1><span class="italic"><%= theater.name %></span> Past Purchases</h1>
+            <div class="admin-table">
+                    <% for (let movieId in purchasesByMovie) { %>
+                        <div class="admin-table-row">
+                            <h2> <%=purchasesByMovie[movieId][0].movie.title %></h2>
+                            <div class="purchase-grid">
+                                <div class="bold"> <p>First Name</p></div>
+                                <div class="bold"> <p>Last Name</p> </div>
+                                <div class="bold"><p>Email</p> </div>
+                                <div class="bold"><p>Seat Name</p> </div>
+                                <div class="bold"> <p>Show Time</p></div>
+                                <div class="bold"> <p>Paid</p></div>
+                                <% purchasesByMovie[movieId].map(purchase => { %>
+                                        <p><%= purchase.customer.first_name %></p>
+                                        <p><%= purchase.customer.last_name %></p> 
+                                        <p><%= purchase.customer.email %></p> 
+                                         <p><%= purchase.seatNumber %></p> 
+                                        <p><%= purchase.showTime %></p>
+                                        <p>$<%= purchase.price %></p>            
+                                <% }) %>
+                            </div>
+                             
+                        </div>
+        
+                    <% } %>
+
+
+            </div>
+               
+         
+    </div>
+</body>
+</html>

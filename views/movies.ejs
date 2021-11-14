@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies in ANC</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="container movies">
+        <h1>Movies Offered at ANC Theaters</h1>
+        <div class="grid-container movie-cards-wrapper">
+            <% movies.map(movie => { %>
+                <a href="/movies/<%=movie.id%>">
+                    <div class="link-card">
+                        <div class="img-wrapper" style="background-image:url('../<%= movie.coverPhoto %>')">
+                        
+                        </div>
+                        <div class="content-wrapper">
+                            <h2> <%= movie.title%></h2>
+                            <p> <%= movie.MPAA %> | <%= movie.genre %></p>
+                            <p class="release"> Released <%= movie.releaseDate %></p>
+
+                        </div>
+                        <!-- <p class="button">Show theaters >></p> -->
+                    </div>
+                </a>
+            <% }) %>
+        </div>
+    
+    </div>
+</body>
+</html>

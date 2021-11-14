@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANC Theaters | <%= theater[0].name %></title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="container">
+        <a href="/theaters/admin/<%=theater[0].id%>" class="admin-btn"> See Admin view </a>
+        <h1>Movies Currently Showing in <span class="italic"><%= theater[0].name%></span></h1>
+        <div class="grid-container">
+             <% moviesShowingInTheater.map(movie => { %>
+                <a href="/movies/<%=movie.id%>">
+                    <div class="link-card">
+                        <div class="img-wrapper" style="background-image:url('../<%= movie.coverPhoto %>')">
+                        </div>
+                        <div class="content-wrapper">
+                            <h2> <%= movie.title%></h2>
+                            <p> <%= movie.MPAA %> | <%= movie.genre %></p>
+                            <p class="release"> Released <%= movie.releaseDate %></p>
+
+                        </div>
+                    </div>
+                </a>
+            <% }) %> 
+        </div>
+    
+    </div>
+</body>
+</html>
